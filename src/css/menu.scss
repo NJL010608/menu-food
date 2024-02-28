@@ -21,17 +21,14 @@ $MQ_MD: 'only screen and (max-width: '+$SCREEN_MD2+') and (min-width: '+$SCREEN_
     margin-bottom: -20px;
 }
 
-@mixin titleBorder($color, $width){
+@mixin titleBorder($color, $width, $background, $colortext){
     border: $width solid $color;
     border-radius:5%;
     width:30%;
     margin-top: 5px;
     text-align: center;
-}
-
-@mixin container-base{
-    display:flex;
-    justify-content: center;
+    background-color: $background;
+    color:$colortext
 }
 
 p{
@@ -40,56 +37,32 @@ p{
 }
 
 .container {
+    display:flex;
+    justify-content: center;
     .section{
-        &--1{
-            @extend .section-basic;
-
+        @extend .section-basic;
             &__titlebox{
                 @include titlebox;
             }
-            &__subtitle{
-                @include titleBorder(black, 2px);
-                background-color: pink;
-                color:#000;
+            &__subtitle--chicken{
+                @include titleBorder(black, 2px,black,pink);
             }
-        }
-        &--2{
-
-            @extend .section-basic;
-            &__titlebox{
-                @include titlebox;
+            &__subtitle--beef{
+                @include titleBorder(black, 2px,red,white);
             }
-            &__subtitle{
-                @include titleBorder(black, 2px);
-                background-color: red;
-                color:white;
+            &__subtitle--sushi{
+                @include titleBorder(black, 2px, yellow, black);
             }
-        }
-        &--3{
-            @extend .section-basic;
-
-            &__titlebox{
-                @include titlebox;
-            }
-            &__subtitle{
-                @include titleBorder(black, 2px);
-                background-color: yellow;
-                color:#000;
-            }
-        }
     }
 }
 
 /* Desktop styles */
 @media #{$CQ_MD} {
     .container {
-        @include container-base;
         .section{
-            &--1,&--2,&--3{
-                float:left;
-                width: 30%;
-                margin: 10px;
-            }
+            float:left;
+            width: 30%;
+            margin: 10px;
         }
     }
 }
@@ -97,19 +70,14 @@ p{
 /* Tablet styles */
 @media #{$MQ_MD} {
     .container {
-        @include container-base;
-        flex-wrap: wrap; /* Enable wrapping */
+        flex-wrap:wrap;
         .section{
-            &--1,&--2{
-                float:left;
-                width: 40%;
-                margin: 10px;
-            }
-            &--3{
-                float:left;
-                width: 85%;
-                margin: 10px;
-            }
+            float:left;
+            width: 40%;
+            margin: 10px;
+        }
+        .section:nth-child(3) {
+            width:85%;
         }
     }  
 }
@@ -117,12 +85,11 @@ p{
 /* Mobile styles */
 @media #{$MQ_SM} {
     .container {
+        display:inline-block;
         width: 100%;
-        .section{
-            &--1,&--2,&--3{
+            .section{
                 float:center;
                 margin: 20px 20px 20px;
             }
-        }
     }
 }
