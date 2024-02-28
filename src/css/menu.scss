@@ -15,33 +15,29 @@ $MQ_MD: 'only screen and (max-width: '+$SCREEN_MD2+') and (min-width: '+$SCREEN_
     margin-bottom: -20px;
 }
 
-.section__subtitle{
-    text-align: center;
-    background-color: pink;
-    margin-top: 5px;
-    border:2px solid #000;
-    border-radius: 5%;
+@mixin titleBorder($color, $width){
+    border: $width solid $color;
+    border-radius:5%;
     width:30%;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.section__subtitle{
+    @include titleBorder(black, 2px);
+    background-color: pink;
     color:#000;
 }
 
 .section__subtitle2{
-    text-align: center;
+    @include titleBorder(black, 2px);
     background-color: red;
-    margin-top: 5px;
-    border:2px solid #000;
-    border-radius: 5%;
-    width:30%;
     color:white;
 }
 
 .section__subtitle3{
-    text-align: center;
+    @include titleBorder(black, 2px);
     background-color: yellow;
-    margin-top: 5px;
-    border:2px solid #000;
-    border-radius: 5%;
-    width:30%;
     color:#000;
 }
 
@@ -50,31 +46,29 @@ p{
     font-size:16px;
 }
 
-.section{
+.section-basic{
     padding: 0px 10px 0px;
     border: 2px solid #000;
     border-radius:2%;
     background-color: rgb(165, 165, 165);
+}
+
+.section{
+    @extend .section-basic;
 }
 
 .section--tablet1{
+    @extend .section-basic;
     float:left;
     width: 40%;
-    padding: 0px 10px 0px;
-    border: 2px solid #000;
-    border-radius:2%;
     margin: 10px;
-    background-color: rgb(165, 165, 165);
 }
 
 .section--tablet2{
+    @extend .section-basic;
     float:left;
     width: 85%;
-    padding: 0px 10px 0px;
-    border: 2px solid #000;
-    border-radius:2%;
     margin: 10px;
-    background-color: rgb(165, 165, 165);
 }
 
 /* Desktop styles */
