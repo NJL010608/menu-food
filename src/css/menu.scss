@@ -7,8 +7,14 @@ $CQ_MD: '(min-width: '+$SCREEN_MD+')';
 $MQ_SM: 'only screen and (max-width: '+$SCREEN_SM2+')';
 $MQ_MD: 'only screen and (max-width: '+$SCREEN_MD2+') and (min-width: '+$SCREEN_SM+')';
 
+.section-basic{
+    padding: 0px 10px 0px;
+    border: 2px solid #000;
+    border-radius:2%;
+    background-color: rgb(165, 165, 165);
+}
 
-.section__titlebox{
+@mixin titlebox{
     display:flex;
     justify-content: right;
     margin-right: 5px;
@@ -23,22 +29,9 @@ $MQ_MD: 'only screen and (max-width: '+$SCREEN_MD2+') and (min-width: '+$SCREEN_
     text-align: center;
 }
 
-.section__subtitle{
-    @include titleBorder(black, 2px);
-    background-color: pink;
-    color:#000;
-}
-
-.section__subtitle2{
-    @include titleBorder(black, 2px);
-    background-color: red;
-    color:white;
-}
-
-.section__subtitle3{
-    @include titleBorder(black, 2px);
-    background-color: yellow;
-    color:#000;
+@mixin container-base{
+    display:flex;
+    justify-content: center;
 }
 
 p{
@@ -46,76 +39,90 @@ p{
     font-size:16px;
 }
 
-.section-basic{
-    padding: 0px 10px 0px;
-    border: 2px solid #000;
-    border-radius:2%;
-    background-color: rgb(165, 165, 165);
-}
+.container {
+    .section{
+        &--1{
+            @extend .section-basic;
 
-.section{
-    @extend .section-basic;
-}
+            &__titlebox{
+                @include titlebox;
+            }
+            &__subtitle{
+                @include titleBorder(black, 2px);
+                background-color: pink;
+                color:#000;
+            }
+        }
+        &--2{
 
-.section--tablet1{
-    @extend .section-basic;
-    float:left;
-    width: 40%;
-    margin: 10px;
-}
+            @extend .section-basic;
+            &__titlebox{
+                @include titlebox;
+            }
+            &__subtitle{
+                @include titleBorder(black, 2px);
+                background-color: red;
+                color:white;
+            }
+        }
+        &--3{
+            @extend .section-basic;
 
-.section--tablet2{
-    @extend .section-basic;
-    float:left;
-    width: 85%;
-    margin: 10px;
+            &__titlebox{
+                @include titlebox;
+            }
+            &__subtitle{
+                @include titleBorder(black, 2px);
+                background-color: yellow;
+                color:#000;
+            }
+        }
+    }
 }
 
 /* Desktop styles */
 @media #{$CQ_MD} {
     .container {
-        display:flex;
-        justify-content: center;
-    }
-    .section{
-        float:left;
-        width: 30%;
-        margin: 10px;
-    }
-    .section--tablet1{
-        display:none;
-    }
-    .section--tablet2{
-        display:none;
+        @include container-base;
+        .section{
+            &--1,&--2,&--3{
+                float:left;
+                width: 30%;
+                margin: 10px;
+            }
+        }
     }
 }
 
 /* Tablet styles */
 @media #{$MQ_MD} {
-        .container {
-            display:flex;
-            justify-content: center;
-            flex-wrap: wrap; /* Enable wrapping */
-        }
+    .container {
+        @include container-base;
+        flex-wrap: wrap; /* Enable wrapping */
         .section{
-            display:none;
+            &--1,&--2{
+                float:left;
+                width: 40%;
+                margin: 10px;
+            }
+            &--3{
+                float:left;
+                width: 85%;
+                margin: 10px;
+            }
         }
-    
+    }  
 }
 
 /* Mobile styles */
 @media #{$MQ_SM} {
-    .section{
-        float:center;
-        margin: 20px 20px 20px;
-    }
     .container {
         width: 100%;
-    }
-    .section--tablet1{
-        display:none;
-    }
-    .section--tablet2{
-        display:none;
+        .section{
+            &--1,&--2,&--3{
+                float:center;
+                margin: 20px 20px 20px;
+            }
+        }
     }
 }
