@@ -1,0 +1,127 @@
+$SCREEN_SM: 768px;
+$SCREEN_MD: 992px;
+$SCREEN_SM2: 767px;
+$SCREEN_MD2: 991px;
+
+$CQ_MD: '(min-width: '+$SCREEN_MD+')';
+$MQ_SM: 'only screen and (max-width: '+$SCREEN_SM2+')';
+$MQ_MD: 'only screen and (max-width: '+$SCREEN_MD2+') and (min-width: '+$SCREEN_SM+')';
+
+
+.section__titlebox{
+    display:flex;
+    justify-content: right;
+    margin-right: 5px;
+    margin-bottom: -20px;
+}
+
+.section__subtitle{
+    text-align: center;
+    background-color: pink;
+    margin-top: 5px;
+    border:2px solid #000;
+    border-radius: 5%;
+    width:30%;
+    color:#000;
+}
+
+.section__subtitle2{
+    text-align: center;
+    background-color: red;
+    margin-top: 5px;
+    border:2px solid #000;
+    border-radius: 5%;
+    width:30%;
+    color:white;
+}
+
+.section__subtitle3{
+    text-align: center;
+    background-color: yellow;
+    margin-top: 5px;
+    border:2px solid #000;
+    border-radius: 5%;
+    width:30%;
+    color:#000;
+}
+
+p{
+    text-align: left;
+    font-size:16px;
+}
+
+.section{
+    padding: 0px 10px 0px;
+    border: 2px solid #000;
+    border-radius:2%;
+    background-color: rgb(165, 165, 165);
+}
+
+.section--tablet1{
+    float:left;
+    width: 40%;
+    padding: 0px 10px 0px;
+    border: 2px solid #000;
+    border-radius:2%;
+    margin: 10px;
+    background-color: rgb(165, 165, 165);
+}
+
+.section--tablet2{
+    float:left;
+    width: 85%;
+    padding: 0px 10px 0px;
+    border: 2px solid #000;
+    border-radius:2%;
+    margin: 10px;
+    background-color: rgb(165, 165, 165);
+}
+
+/* Desktop styles */
+@media #{$CQ_MD} {
+    .container {
+        display:flex;
+        justify-content: center;
+    }
+    .section{
+        float:left;
+        width: 30%;
+        margin: 10px;
+    }
+    .section--tablet1{
+        display:none;
+    }
+    .section--tablet2{
+        display:none;
+    }
+}
+
+/* Tablet styles */
+@media #{$MQ_MD} {
+        .container {
+            display:flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Enable wrapping */
+        }
+        .section{
+            display:none;
+        }
+    
+}
+
+/* Mobile styles */
+@media #{$MQ_SM} {
+    .section{
+        float:center;
+        margin: 20px 20px 20px;
+    }
+    .container {
+        width: 100%;
+    }
+    .section--tablet1{
+        display:none;
+    }
+    .section--tablet2{
+        display:none;
+    }
+}
