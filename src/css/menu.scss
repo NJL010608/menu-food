@@ -1,25 +1,8 @@
 $SCREEN_SM: 768px;
 $SCREEN_MD: 992px;
-$SCREEN_SM2: 767px;
-$SCREEN_MD2: 991px;
 
-$CQ_MD: '(min-width: '+$SCREEN_MD+')';
-$MQ_SM: 'only screen and (max-width: '+$SCREEN_SM2+')';
-$MQ_MD: 'only screen and (max-width: '+$SCREEN_MD2+') and (min-width: '+$SCREEN_SM+')';
-
-.section-basic{
-    padding: 0px 10px 0px;
-    border: 2px solid #000;
-    border-radius:2%;
-    background-color: rgb(165, 165, 165);
-}
-
-@mixin titlebox{
-    display:flex;
-    justify-content: right;
-    margin-right: 5px;
-    margin-bottom: -20px;
-}
+$MQ_SM: 'only screen and (max-width: '+$SCREEN_SM+')';
+$MQ_MD: 'only screen and (max-width: '+$SCREEN_MD+')';
 
 @mixin titleBorder($color, $width, $background, $colortext){
     border: $width solid $color;
@@ -37,59 +20,67 @@ p{
 }
 
 .container {
-    display:flex;
+    display: flex;
     justify-content: center;
-    .section{
-        @extend .section-basic;
-            &__titlebox{
-                @include titlebox;
+    .section {
+        // Common styles for all sections
+        padding: 0px 10px 0px;
+        border: 2px solid #000;
+        border-radius: 2%;
+        background-color: rgb(165, 165, 165);
+        float: left;
+        width: 30%;
+        margin: 10px;
+
+        &__titlebox {
+            // Title box styles
+            display: flex;
+            justify-content: right;
+            margin-right: 5px;
+            margin-bottom: -20px;
+        }
+
+        &__subtitle {
+            // Subtitle styles
+            &--chicken {
+                @include titleBorder(black, 2px, black, pink);
             }
-            &__subtitle--chicken{
-                @include titleBorder(black, 2px,black,pink);
+            &--beef {
+                @include titleBorder(black, 2px, red, white);
             }
-            &__subtitle--beef{
-                @include titleBorder(black, 2px,red,white);
-            }
-            &__subtitle--sushi{
+            &--sushi {
                 @include titleBorder(black, 2px, yellow, black);
             }
-    }
-}
-
-/* Desktop styles */
-@media #{$CQ_MD} {
-    .container {
-        .section{
-            float:left;
-            width: 30%;
-            margin: 10px;
         }
     }
 }
 
-/* Tablet styles */
+// Tablet styles
 @media #{$MQ_MD} {
     .container {
-        flex-wrap:wrap;
-        .section{
-            float:left;
+        flex-wrap: wrap;
+        .section {
+            float: left;
             width: 40%;
             margin: 10px;
         }
         .section:nth-child(3) {
-            width:85%;
+            float: left;
+            width: 85%;
+            margin: 10px;
         }
-    }  
+    }
 }
 
-/* Mobile styles */
+// Mobile styles
 @media #{$MQ_SM} {
     .container {
         display:inline-block;
-        width: 100%;
-            .section{
-                float:center;
-                margin: 20px 20px 20px;
-            }
+        width:100%;
+        .section, .section:nth-child(3) {
+            width:auto;
+            margin: 20px;
+        }
+        
     }
 }
