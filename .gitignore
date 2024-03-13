@@ -26,3 +26,6 @@ yarn-error.log*
 /public/logo192.png
 /public/logo512.png
 /src/logo.svg
+/src/dist/bundle.js
+/src/dist/main.css
+/src/dist/node_modules_web-vitals_dist_web-vitals_js.bundle.js
