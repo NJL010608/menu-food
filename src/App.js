@@ -1,4 +1,5 @@
 import Content from './Content.js'
+import './App.scss';
 
 function App() {
   return (

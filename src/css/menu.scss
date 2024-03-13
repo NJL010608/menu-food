@@ -6,10 +6,6 @@ $MQ_MD: 'only screen and (max-width: '+$SCREEN_MD+')';
 
 @mixin titleBorder($color, $width, $background, $colortext){
     border: $width solid $color;
-    border-radius:5%;
-    width:30%;
-    margin-top: 5px;
-    text-align: center;
     background-color: $background;
     color:$colortext
 }
@@ -23,7 +19,6 @@ p{
     display: flex;
     justify-content: center;
     .section {
-        // Common styles for all sections
         padding: 0px 10px 0px;
         border: 2px solid #000;
         border-radius: 2%;
@@ -33,7 +28,6 @@ p{
         margin: 10px;
 
         &__titlebox {
-            // Title box styles
             display: flex;
             justify-content: right;
             margin-right: 5px;
@@ -41,7 +35,11 @@ p{
         }
 
         &__subtitle {
-            // Subtitle styles
+            border-radius:5%;
+            width:30%;
+            margin-top: 5px;
+            text-align: center;
+            
             &--chicken {
                 @include titleBorder(black, 2px, black, pink);
             }
@@ -55,7 +53,6 @@ p{
     }
 }
 
-// Tablet styles
 @media #{$MQ_MD} {
     .container {
         flex-wrap: wrap;
@@ -72,7 +69,6 @@ p{
     }
 }
 
-// Mobile styles
 @media #{$MQ_SM} {
     .container {
         display:inline-block;

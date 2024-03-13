@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'src/dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -16,9 +16,9 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
-        },
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+        }
       },
       {
         test: /\.scss$/i,
@@ -28,13 +28,13 @@ module.exports = {
   },
   plugins: [new MiniCssExtractPlugin()],
   resolve: {
-    extensions: ['.js', '.jsx', '.scss', '.css'],
+    extensions: ['.js', '.jsx', '.scss', '.css']
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'src/dist'),
+      directory: path.join(__dirname, 'src/dist')
     },
     compress: true,
-    port: 9000,
-  },
+    port: 9000
+  }
 };
