@@ -13,11 +13,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "webpack",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dev": "webpack --watch --mode development",
-    "webpack-build": "webpack"
+    "eject": "react-scripts eject"
+
   },
   "eslintConfig": {
     "extends": [
