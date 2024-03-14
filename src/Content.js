@@ -1,5 +1,4 @@
 import React from 'react';
-import './css/menu.scss';
 
 function Content() {
     return (
