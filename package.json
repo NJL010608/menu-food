@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=production node_modules/react-scripts/bin/react-scripts.js start",
+    "start": "node ./node_modules/react-scripts/bin/react-scripts.js start",
     "build": "react-scripts build",
     "webpack-build": "webpack"
   },
