@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "react-scripts start",
-    "start": "http-server ./build -a localhost -p 3000 -o -c1",
+    "start": "node index.js",
     "build": "react-scripts build",
     "webpack-build": "webpack"
   },
