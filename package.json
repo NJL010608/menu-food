@@ -26,8 +26,6 @@
       "last 1 safari version"
     ]
   },
-  "dependencies": {
-  },
   "devDependencies": {
     "babel-loader": "^9.1.3",
     "css-loader": "^6.10.0",
