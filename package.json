@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "react-scripts start",
-    "start": "index.html",
+    "start": "http-server ./build -a localhost -p 3000 -o -c1",
     "build": "react-scripts build",
     "webpack-build": "webpack"
   },
@@ -27,6 +27,7 @@
     ]
   },
   "dependencies": {
+    "http-server": "^14.1.1"
   },
   "devDependencies": {
     "babel-loader": "^9.1.3",
