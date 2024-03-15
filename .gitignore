@@ -27,4 +27,4 @@ yarn-error.log*
 /public/logo512.png
 /src/logo.svg
 /src/dist/node_modules_web-vitals_dist_web-vitals_js.bundle.js
-package-lock.json
+
