@@ -1,0 +1,82 @@
+$SCREEN_SM: 768px;
+$SCREEN_MD: 992px;
+
+$MQ_SM: 'only screen and (max-width: '+$SCREEN_SM+')';
+$MQ_MD: 'only screen and (max-width: '+$SCREEN_MD+')';
+
+@mixin titleBorder($color, $width, $background, $colortext){
+    border: $width solid $color;
+    background-color: $background;
+    color:$colortext
+}
+
+p{
+    text-align: left;
+    font-size:16px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    .section {
+        padding: 0px 10px 0px;
+        border: 2px solid #000;
+        border-radius: 2%;
+        background-color: rgb(165, 165, 165);
+        float: left;
+        width: 30%;
+        margin: 10px;
+
+        &__titlebox {
+            display: flex;
+            justify-content: right;
+            margin-right: 5px;
+            margin-bottom: -20px;
+        }
+
+        &__subtitle {
+            border-radius:5%;
+            width:30%;
+            margin-top: 5px;
+            text-align: center;
+            
+            &--chicken {
+                @include titleBorder(black, 2px, black, pink);
+            }
+            &--beef {
+                @include titleBorder(black, 2px, red, white);
+            }
+            &--sushi {
+                @include titleBorder(black, 2px, yellow, black);
+            }
+        }
+    }
+}
+
+@media #{$MQ_MD} {
+    .container {
+        flex-wrap: wrap;
+        .section {
+            float: left;
+            width: 40%;
+            margin: 10px;
+        }
+        .section:nth-child(3) {
+            float: left;
+            width: 85%;
+            margin: 10px;
+        }
+    }
+}
+
+@media #{$MQ_SM} {
+    .container {
+        display:inline-block;
+        width:100%;
+        .section, .section:nth-child(3) {
+            width:auto;
+            margin: 20px;
+        }
+        
+    }
+}
